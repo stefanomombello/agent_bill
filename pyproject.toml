@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-bill"
+version = "0.1.0"
+description = "Multi-agent system for analyzing utility bills and recommending better offers"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain>=0.3",
+    "langchain-community>=0.3",
+    "langchain-ollama>=1.0",
+    "langgraph>=0.4",
+    "pydantic>=2.0",
+    "tavily-python>=0.5",
+    "rich>=13.0",
+    "pyyaml>=6.0",
+    "pymupdf>=1.24",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+agent-bill = "agent_bill.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
